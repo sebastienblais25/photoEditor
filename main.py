@@ -3,76 +3,8 @@ from PIL import Image
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import numpy as np
-
-######## Class #########
-
-#classe permettant d'entrer un pixel d'interet avec sa position
-class pixelInteret:
-
-    pointx = 0
-    pointy = 0
-    pixel = []
-
-    # constructeur permettant de construire l'objet avec la position du pixel
-    def __init__(self, x, y):
-        self.pointx = x
-        self.pointy = y
-        self.pixel = [0 for i in range(4)]
-
-    # Setteur permettant de placer une position et unpixel
-    def setpoint(self, x, y, pixel):
-        self.pointx = x
-        self.pointy = y
-        self.pixel = pixel
-
-#class permttant de creer un masque pour nos photos
-class mask:
-
-    heigth = 0
-    width = 0
-    tab = [[]]
-
-    # constructeur qui initialise la matrice qui va servir de masque
-    def __init__(self, h, w):
-
-        self.heigth = h
-        self.width = w
-        self.tab = [[0 for x in range(w)] for y in range(h)]
-
-    # set la valeur d'un point du masque dans l'objet
-    def setMaskPoint(self, i,j, valeur):
-
-        self.tab[i][j] = valeur
-
-    #set le masque au complet en recevant la liste des points d'interet
-    def setMask(self, mat):
-        k = 0
-        # for pour la premiere dimension de la matrice
-        for i in range(self.heigth):
-
-            # for pour la deuxieme dimension de la matrice
-            for j in range(self.width):
-
-                #pour ne pas depasser l'index lorsque le pixel d'interet est passer
-                if (k < len(mat)):
-                    if i == mat[k].pointx and j == mat[k].pointy:
-
-                        self.tab[i][j] = 1
-                        k += 1
-                    else:
-
-                        self.tab[i][j] = 0
-
-        return self.tab
-
-    # Affichage du masque
-    def printMask(self):
-
-        for i in range(self.heigth):
-            for j in range(self.width):
-                if self.tab[i][j] == 1:
-                    print self.tab[i]
-
+from pixelInteret import pixelInteret
+from mask import mask
 
 ############### Function ###################
 
@@ -198,7 +130,7 @@ def analysisphoto(img, filtre):
                     lel.append(positionpixel)
 
                     count += 1
-    print count
+    print(count)
 
     # Initialisation du masque
     masque = mask(height, width)
@@ -208,7 +140,7 @@ def analysisphoto(img, filtre):
 
     # realistion du masque avec les pixels
     mask1 = pixelMask(mask1, width, height)
-    print 'done'
+    print('done')
 
     return mask1
 
@@ -275,7 +207,6 @@ def compareMask(one, two, three):
 # Demande a l'utilisteur
 
 # Verification que l'utilisateur entre une photo PNG
-
 
 # lecture de l'image avec mathplotlib
 img = mpimg.imread('feu10.png')
