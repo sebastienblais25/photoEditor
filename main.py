@@ -241,3 +241,4 @@ def compareMask(one, two, three):
 #transformMatrixToImage(lel2, 'hotOutput.png')
 #transformMatrixToImage(lel1, 'spectralOutput.png')
 #transformMatrixToImage(lel4, 'FinalOutput.png')
+#change 

@@ -45,3 +45,4 @@ class mask:
             for j in range(self.width):
                 if self.tab[i][j] == 1:
                     print(self.tab[i])
+                    #affichage
