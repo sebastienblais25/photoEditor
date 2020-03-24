@@ -3,6 +3,8 @@ from PIL import Image
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import numpy as np
+#import pandas as pd
+#import xlrd
 from pixelInteret import pixelInteret
 from mask import mask
 
@@ -204,36 +206,38 @@ def compareMask(one, two, three):
 
 ###### Main ########
 
+
+
 # Demande a l'utilisteur
 
 # Verification que l'utilisateur entre une photo PNG
 
 # lecture de l'image avec mathplotlib
-img = mpimg.imread('feu10.png')
+#img = mpimg.imread('feu10.png')
 
 # Application des filtres pour les image et
 # ensuite enregistrer chaque photo pour les garder en memoire
-applyfilter(img, 'hot')
-saveImg('img1.png')
-applyfilter(img, 'nipy_spectral')
-saveImg('img2.png')
-applyfilter(img, 'Greys')
-saveImg('img3.png')
+#applyfilter(img, 'hot')
+#saveImg('img1.png')
+#applyfilter(img, 'nipy_spectral')
+#saveImg('img2.png')
+#applyfilter(img, 'Greys')
+#saveImg('img3.png')
 
 # Ouvrir les images a l'aide de la librairie Pillow
-img1 = Image.open('img1.png')
-img2 = Image.open('img2.png')
-img3 = Image.open('img3.png')
+#img1 = Image.open('img1.png')
+#img2 = Image.open('img2.png')
+#img3 = Image.open('img3.png')
 
 # Analyse des images pour chaque filtre
-lel1 = analysisphoto(img2, 0)
-lel2 = analysisphoto(img1, 1)
-lel3 = analysisphoto(img3, 2)
+#lel1 = analysisphoto(img2, 0)
+#lel2 = analysisphoto(img1, 1)
+#lel3 = analysisphoto(img3, 2)
 
-lel4 = compareMask(lel3, lel2, lel1)
+#lel4 = compareMask(lel3, lel2, lel1)
 
 # Transformation pour chaque array en photo afin d'obtenir un masque visible
-transformMatrixToImage(lel3, 'greyOutput.png')
-transformMatrixToImage(lel2, 'hotOutput.png')
-transformMatrixToImage(lel1, 'spectralOutput.png')
-transformMatrixToImage(lel4, 'FinalOutput.png')
+#transformMatrixToImage(lel3, 'greyOutput.png')
+#transformMatrixToImage(lel2, 'hotOutput.png')
+#transformMatrixToImage(lel1, 'spectralOutput.png')
+#transformMatrixToImage(lel4, 'FinalOutput.png')
